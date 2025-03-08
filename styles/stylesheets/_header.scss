@@ -7,20 +7,7 @@ header {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    animation-name: header-enter;
-    animation-duration: 600ms;
-    animation-timing-function: ease-in-out;
-
-    #header-leading {
-
-        #role {
-            font-size: 16px;
-            line-height: 24px;
-            font-weight: 400;
-            letter-spacing: .32px;
-            color: #77797A;
-        }
-    }
+    z-index: 150;
 
     nav {
         display: flex;
@@ -31,7 +18,7 @@ header {
             display: flex;
             align-items: center;
             position: relative;
-            margin-left: 24px;
+            margin-left: 16px;
 
             img {
                 margin-left: 2px;
@@ -51,16 +38,5 @@ header {
         #nav-item:hover::before {
             width: 100%;
         }
-    }
-}
-
-@keyframes header-enter {
-    from {
-        opacity: 0;
-        transform: translateY(-100px);
-    }
-    to {
-        opacity: 100;
-        transform: translateY(0);
     }
 }
