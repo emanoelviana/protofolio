@@ -205,8 +205,9 @@ a {
   font-family: "PP Neue Montreal";
   font-size: 20px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 28px;
+  letter-spacing: 0.4px;
   text-decoration: none;
   margin: 0;
   color: #F4F5F6;
@@ -238,8 +239,8 @@ button {
     font-family: "PP Hatton";
     font-size: 72px;
     font-style: normal;
-    font-weight: 500;
-    line-height: 96px;
+    font-weight: 300;
+    line-height: 104px;
     margin: 0;
     color: #F4F5F6;
   }
@@ -274,7 +275,7 @@ button {
     font-family: "PP Hatton";
     font-size: 20px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 300;
     line-height: 28px;
     margin: 0;
     color: #F4F5F6;
@@ -283,7 +284,7 @@ button {
     font-family: "PP Hatton";
     font-size: 16px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 300;
     line-height: 24px;
     letter-spacing: 0.32px;
     margin: 0;
@@ -318,10 +319,10 @@ button {
   }
   button {
     font-family: "PP Neue Montreal";
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    line-height: 28px;
+    line-height: 24px;
     margin: 0;
     color: #F4F5F6;
   }
@@ -348,17 +349,45 @@ body {
 
 #sc-main {
   width: 100%;
-  height: 100%;
+  height: 80%;
   z-index: 100;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 16px;
+  grid-template-rows: 15% auto 1fr;
+  -moz-column-gap: 16px;
+       column-gap: 16px;
+  row-gap: 10%;
 }
 #sc-main #main-headline {
-  grid-column: 5/-5;
+  grid-column: 1/9;
   grid-row: 2/-2;
-  text-align: center;
+}
+#sc-main #main-description {
+  grid-column: 1/5;
+  grid-row: -2/-1;
+  margin-right: 8%;
+}
+#sc-main #main-description #main-text {
+  margin-bottom: 10%;
+}
+#sc-main #main-description button {
+  border: none;
+  padding: 16px 24px;
+  border-radius: 8px;
+  background-color: #f4f5f6;
+  color: #151515;
+}
+#sc-main #yr-exp {
+  align-self: self-start;
+  grid-row: -2/-1;
+  grid-column: 5/9;
+  display: flex;
+  flex-direction: row;
+}
+#sc-main #yr-exp img {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
 }
 
 #grid {
@@ -390,4 +419,35 @@ body {
 #grid #grid-cell:nth-child(3) {
   grid-column: 9/13;
   border-right: solid 1px #191919;
+}
+
+header {
+  width: 100%;
+  max-width: 88%;
+  padding: 24px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+}
+header nav {
+  display: flex;
+  flex-direction: row;
+}
+header nav a {
+  margin-left: 24px;
+  position: relative;
+}
+header nav a::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: white;
+  transition: width 150ms ease-in-out;
+}
+header nav a:hover::before {
+  width: 100%;
 }/*# sourceMappingURL=main.css.map */
