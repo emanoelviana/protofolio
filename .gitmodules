@@ -1,0 +1,3 @@
+[submodule "assets/fonts-toolkit"]
+	path = assets/fonts-toolkit
+	url = https://github.com/emanoelviana/fonts-toolkit
