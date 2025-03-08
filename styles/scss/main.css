@@ -198,7 +198,7 @@ p {
   line-height: 28px;
   letter-spacing: 0.32px;
   margin: 0;
-  color: #9B9EA3;
+  color: #77797A;
 }
 
 a {
@@ -282,10 +282,10 @@ button {
   }
   h6 {
     font-family: "PP Hatton";
-    font-size: 16px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 300;
-    line-height: 24px;
+    line-height: 26px;
     letter-spacing: 0.32px;
     margin: 0;
     color: #F4F5F6;
@@ -297,14 +297,14 @@ button {
     font-weight: 400;
     line-height: 28px;
     margin: 0;
-    color: #9B9EA3;
+    color: #77797A;
   }
   a {
     font-family: "PP Neue Montreal";
-    font-size: 20px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 28px;
+    line-height: 26px;
     margin: 0;
     color: #F4F5F6;
   }
@@ -345,51 +345,117 @@ body {
 body {
   max-width: 88%;
   margin: 0 auto;
+  scroll-behavior: smooth;
 }
 
 #sc-main {
   width: 100%;
   height: 80%;
   z-index: 100;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 15% auto 1fr;
-  -moz-column-gap: 16px;
-       column-gap: 16px;
-  row-gap: 10%;
+  animation-name: main-enter;
+  animation-duration: 800ms;
+  animation-delay: 500ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 #sc-main #main-headline {
-  grid-column: 1/9;
-  grid-row: 2/-2;
+  max-width: 960px;
+  text-align: center;
+  margin-bottom: 40px;
 }
-#sc-main #main-description {
-  grid-column: 1/5;
-  grid-row: -2/-1;
-  margin-right: 8%;
+#sc-main #main-box {
+  max-width: 456px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
 }
-#sc-main #main-description #main-text {
-  margin-bottom: 10%;
+#sc-main #main-box #main-text {
+  margin-bottom: 32px;
+  text-align: center;
 }
-#sc-main #main-description button {
+#sc-main #main-box #main-button {
+  cursor: pointer;
   border: none;
   padding: 16px 24px;
   border-radius: 8px;
-  background-color: #f4f5f6;
-  color: #151515;
+  color: #0C0D0F;
 }
-#sc-main #yr-exp {
-  align-self: self-start;
-  grid-row: -2/-1;
-  grid-column: 5/9;
+#sc-main #main-experience {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  margin-bottom: 24px;
 }
-#sc-main #yr-exp img {
-  width: 24px;
-  height: 24px;
-  margin-right: 12px;
+#sc-main #main-experience p {
+  color: #F4F5F6;
+}
+#sc-main #main-experience img {
+  margin-right: 8px;
 }
 
+@keyframes main-enter {
+  from {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  to {
+    opacity: 100%;
+    transform: translateY(0px);
+  }
+}
+#projects {
+  width: 100%;
+}
+#projects #project-card {
+  width: 100%;
+  animation-name: projects-enter;
+  will-change: transform;
+  animation-duration: 1000ms;
+  animation-delay: 1600ms;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+}
+#projects #project-card img {
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+  position: relative;
+  background-image: url("/assets/images/flash.png");
+  background-position: center;
+  background-size: cover;
+  border-radius: 4px;
+  z-index: 100;
+}
+#projects #project-card img:before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+#projects #project-card img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@keyframes projects-enter {
+  from {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  to {
+    opacity: 100%;
+    transform: translateY(0px);
+  }
+}
 #grid {
   pointer-events: none;
   position: fixed;
@@ -430,24 +496,50 @@ header {
   justify-content: space-between;
   align-items: center;
   position: fixed;
+  animation-name: header-enter;
+  animation-duration: 600ms;
+  animation-timing-function: ease-in-out;
+}
+header #header-leading #role {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: 0.32px;
+  color: #77797A;
 }
 header nav {
   display: flex;
   flex-direction: row;
 }
-header nav a {
-  margin-left: 24px;
+header nav #nav-item {
+  display: flex;
+  align-items: center;
   position: relative;
+  margin-left: 24px;
 }
-header nav a::before {
+header nav #nav-item img {
+  margin-left: 2px;
+}
+header nav #nav-item::before {
   content: "";
   position: absolute;
-  bottom: -4px;
+  bottom: -2px;
   width: 0%;
   height: 2px;
-  background-color: white;
-  transition: width 150ms ease-in-out;
+  background-color: #636566;
+  transition: width 125ms ease-in-out;
 }
-header nav a:hover::before {
+header nav #nav-item:hover::before {
   width: 100%;
+}
+
+@keyframes header-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 100;
+    transform: translateY(0);
+  }
 }/*# sourceMappingURL=main.css.map */
